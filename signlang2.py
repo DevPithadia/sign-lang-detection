@@ -23,6 +23,8 @@ import pandas as pd
 import pickle
 import streamlit as st
 from IPython import get_ipython
+import subprocess
+
 #from streamlit_option_menu import option_menu
 
 
@@ -46,8 +48,19 @@ with open(ANNOTATION_PATH + '\label_map.pbtxt', 'w') as f:
 # In[26]:
 
 
-get_ipython().system("python {SCRIPTS_PATH + '/generate_tfrecord.py'} -x {IMAGE_PATH + '/train'} -l {ANNOTATION_PATH + '/label_map.pbtxt'} -o {ANNOTATION_PATH + '/train.record'}")
-get_ipython().system("python {SCRIPTS_PATH + '/generate_tfrecord.py'} -x{IMAGE_PATH + '/test'} -l {ANNOTATION_PATH + '/label_map.pbtxt'} -o {ANNOTATION_PATH + '/test.record'}")
+scripts_path = "/path/to/scripts"
+image_path = "/path/to/images"
+annotation_path = "/path/to/annotations"
+
+command = f"python {scripts_path}/generate_tfrecord.py -x {image_path}/train -l {annotation_path}/label_map.pbtxt -o {annotation_path}/train.record"
+subprocess.run(command, shell=True)
+
+scripts_path = "/path/to/scripts"
+image_path = "/path/to/images"
+annotation_path = "/path/to/annotations"
+
+command = f"python {scripts_path}/generate_tfrecord.py -x {image_path}/test -l {annotation_path}/label_map.pbtxt -o {annotation_path}/test.record"
+subprocess.run(command, shell=True)
 
 
 # # 3. Download TF Models Pretrained Models from Tensorflow Model Zoo
