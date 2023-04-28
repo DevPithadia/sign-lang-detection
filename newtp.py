@@ -4,7 +4,7 @@ import streamlit as st
 import tensorflow as tf
 
 # Load the pre-trained model
-model = tf.keras.models.load_model('C:\Users\devku\Downloads\RealTimeObjectDetection-main\RealTimeObjectDetection-main\RealTimeObjectDetection-main\Tensorflow\workspace\models\my_ssd_mobnet')
+model = tf.keras.models.load_model(r'C:\Users\devku\Downloads\RealTimeObjectDetection-main\RealTimeObjectDetection-main\RealTimeObjectDetection-main\Tensorflow\workspace\models\my_ssd_mobnet')
 
 # Define the class names for the sign language gestures
 class_names = ['thankyou','hello','yes']
