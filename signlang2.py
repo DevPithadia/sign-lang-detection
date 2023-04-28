@@ -47,20 +47,17 @@ with open(ANNOTATION_PATH + '\label_map.pbtxt', 'w') as f:
 
 # In[26]:
 
-
 scripts_path = "/path/to/scripts"
 image_path = "/path/to/images"
 annotation_path = "/path/to/annotations"
 
-command = f"python {scripts_path}/generate_tfrecord.py -x {image_path}/train -l {annotation_path}/label_map.pbtxt -o {annotation_path}/train.record"
-subprocess.run(command, shell=True)
+# Generate train.record
+train_command = f"python {scripts_path}/generate_tfrecord.py -x {image_path}/train -l {annotation_path}/label_map.pbtxt -o {annotation_path}/train.record"
+subprocess.run(train_command, shell=True)
 
-scripts_path = "/path/to/scripts"
-image_path = "/path/to/images"
-annotation_path = "/path/to/annotations"
-
-command = f"python {scripts_path}/generate_tfrecord.py -x {image_path}/test -l {annotation_path}/label_map.pbtxt -o {annotation_path}/test.record"
-subprocess.run(command, shell=True)
+# Generate test.record
+test_command = f"python {scripts_path}/generate_tfrecord.py -x {image_path}/test -l {annotation_path}/label_map.pbtxt -o {annotation_path}/test.record"
+subprocess.run(test_command, shell=True)
 
 
 # # 3. Download TF Models Pretrained Models from Tensorflow Model Zoo
