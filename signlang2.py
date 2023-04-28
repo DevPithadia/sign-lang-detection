@@ -22,6 +22,7 @@ CHECKPOINT_PATH = MODEL_PATH+'/my_ssd_mobnet/'
 import pandas as pd
 import pickle
 import streamlit as st
+from IPython import get_ipython
 #from streamlit_option_menu import option_menu
 
 
